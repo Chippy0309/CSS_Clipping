@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Clipping Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function changeClipPath(element, newClipPath) {
+            element.style.clipPath = newClipPath;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const ellipseBox = document.querySelector(".clipping-box");
+
+            ellipseBox.addEventListener("mouseenter", () => {
+                changeClipPath(ellipseBox, "ellipse(50% 40%)");
+            });
+
+            ellipseBox.addEventListener("mouseleave", () => {
+                changeClipPath(ellipseBox, "ellipse(50% 25%)");
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Types of CSS Clipping</h1>
+        <p>Explore various CSS clipping properties in this interactive webpage!</p>
+    </header>
+
+    <main>
+        <div class="clipping-demo">
+            <img src="flower1.jpeg" alt="Clipping Circle">
+            <p>Clipping using <code>circle()</code>.</p>
+            <p> Hover to see the effect change to <code>polygon()</code>.</p>
+        </div>
+
+        <div class="clipping-demo">
+            <div class="clipping-box"></div>
+            <p>Clipping using <code>ellipse()</code>.</p>
+            <p> Hover to modify the dimensions dynamically!</p>
+        </div>
+
+        <div class="clipping-demo">
+            <img src="flower1.jpeg" alt="Clipping Rectangle" style="clip-path: inset(10% 10% 10% 10%);">
+            <p>Clipping using <code>inset()</code>. Static image holder.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; CKB 2025. All rights reserved.</p>
+    </footer>
+</body>
+</html>
